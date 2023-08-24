@@ -1,0 +1,8 @@
+/* app.css //870 */
+
+@media only screen and (max-width: 700px) {
+    .navbar-menu{
+ 
+    display: none;
+  }
+}

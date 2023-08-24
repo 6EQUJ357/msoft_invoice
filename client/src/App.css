@@ -1,0 +1,214 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.dbutton{
+  margin-bottom: 20px;
+}
+.dlink {
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .slidebarm {
+  display: none;
+  }
+  .navbar-menu{
+    display:none;
+  }
+  .dbutton{
+    margin-bottom: 20px;
+  }
+  .dlink {
+    width: 100%;
+  }
+}
+
+/* style={{fontWeight : "bolder", fontSize:"2rem", color:"black", textTransform:"capitalize"}}  height="35" */
+/* company profile img */
+.c_profile_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* company profile name */
+.c_profile_name {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: black;
+  margin-left: 10px;
+}
+
+/* sidebar */
+.c_profile_sidebar_name {
+  font-size: 0.8rem;
+}
+
+/* add invoice */
+.c_profile_addinvoice_name{
+  font-size: 1.2rem;
+  width: 80%;
+}
+
+.c_profile_addinvoice_img{
+  width: 80px;
+}
+
+@media only screen and (max-width: 600px) {
+  .c_profile_addinvoice_name{
+    font-size: 0.9rem;
+  }
+  .c_profile_addinvoice_img{
+    width: 60px;
+  }
+  .addinvoice_lable {
+    margin-top: 20px;
+  }
+}
+
+/* invoice details */
+.c_profile_addinvoicedetails_img {
+  width: 150px;
+  height: 150px;
+}
+
+.c_profile_invoicedetaikls_name{
+  font-weight: bolder;
+  font-size: 1.3rem;
+  color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .c_profile_invoicedetaikls_name{
+    font-weight: bolder;
+    font-size: 0.7rem;
+    color: black;
+    }
+  .c_profile_addinvoicedetails_img{
+    width: 60px;
+    height: 60px;
+  }
+
+}
+
+/* prgination button style */
+.pegination_button {
+  cursor: pointer;
+  margin: 5px;
+  background-color:rgba(12, 81, 12, 0.726);
+  padding:5px;
+  width:30px;
+  text-align:center;
+  color: white;
+}
+
+/* previous & next button */
+/* .pnbutton {
+  border: none;
+} */
+
+.table_lable {
+ caption-side:top;
+ text-align:center;
+ font-weight:bolder;
+ color:black;
+ font-size: large;
+}
+
+
+/* datalist drop down arrow */
+.down_arrow_style {
+  position: absolute;
+  right: 15px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+
+/* user preview images */
+
+.previewImg {
+  width: 150px;
+  height: 150px;
+}
+
+/* add invoice */
+.product_name {
+  width: 100%;
+}
+
+
+/* dashboard scroll bar */
+.scrollBar_Style{
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.scrollBar_Style::-webkit-scrollbar{
+  width: 15px;
+ 
+}
+.scrollBar_Style::-webkit-scrollbar-track{
+  background: #d1e5ff;
+  
+} 
+.scrollBar_Style::-webkit-scrollbar-thumb{
+  /* background: linear-gradient(#642bff, #ff22e6); */
+  background-color: rgb(23, 139, 139);
+  border-radius: 10px;
+  
+}
+
+
+/* section_width */
+.section_width{
+  width: 150px;
+}
+
+
+/* table head style in invoice */
+.sss{
+  width: 250px;
+}
+.sss1{
+  width: 180px;
+}
+
+
+
+

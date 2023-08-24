@@ -1,0 +1,145 @@
+client port = 3000;
+
+server port = 8080;
+
+mongoose = "mongodb+srv://abhi6equj5:abhi6equj5@cluster0.gglaxr9.mongodb.net/?retryWrites=true&w=majority"
+
+all protected routes = middleware1
+
+
+//      routes      //
+
+create user = {
+    post : /muser,
+    schema : mcreate (model1.js),
+}
+
+
+signin user = {
+    post : /signin,
+   schema : mcreate (model1.js),
+   jwt token
+}
+
+
+dashboard = {
+    protected route : /dashboard
+}
+
+
+invoice = {
+    protected route : /invoice
+}
+
+
+addproduct = {
+    protected route : /addproduct,
+    post : /addproducts,
+    schema : addproductschema
+}
+
+
+product list = {
+    protected route : /productlist,
+    get : /allproductlist,
+    delete : /allproductlist/:id
+}
+
+
+edit product list = {
+     protected route : /editproduct,
+     put : /updateproducts/:id
+}
+
+
+product list = {
+    protected route : /productlist,
+    get all product list = /allproductlist,
+    delete all product list = /allproductlist/:id,
+    edit product list : /updateproducts
+    }
+
+
+protected Product Table = {
+    protect route : /producttable
+}
+
+
+Inventory Table = {
+    protect route : /inventorytable
+ }
+
+add invoice = {
+    protect route : /addinvoice,
+    post : /invoicetransaction,
+    schema : addinvoiceModel,
+    get : /getinvoicetransaction,
+    delete : /deleteinvoicetransaction
+}
+
+
+invoice details = {
+    protect route : /inviocedetails
+}
+
+
+purchaseForm = {
+    protect route : /purchaseform,
+    post : /purchasetransaction
+    schema : purchaseModel,
+    get : /getpurchasetransaction
+}
+
+
+register user(sales) = {
+    protect route : /registeruser,
+    post : /registeruserdetails,
+    schema : /addRegisterUserDetailsModel,
+    get : /getregisteruserdetails
+}
+
+quotation = {
+    protect route : /quotation
+}
+
+
+payments ={
+    protect route : /payments
+} 
+
+
+taxes = {
+    protect route :  /taxes
+}
+
+
+users = {
+    protect route : /users,
+    post : /userdetails,
+    schema : /addUserDetailsModel
+    get : /getuserdetails
+}
+
+payment summary : {
+    protect route : /paymentsummary
+}
+
+
+sale report : {
+    protect route : /salereport
+}
+
+
+expanses report : {
+    protect route : /expansesreport
+}
+
+
+transcation list : {
+    protect route : /transcationlist
+}
+
+
+new transcation : {
+    protect route : /newtranscation
+}
