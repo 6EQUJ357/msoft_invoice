@@ -61,9 +61,9 @@
 /* style={{fontWeight : "bolder", fontSize:"2rem", color:"black", textTransform:"capitalize"}}  height="35" */
 /* company profile img */
 .c_profile_img {
-  width: 50px;
+  width: 100px;
   height: 50px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 /* company profile name */
@@ -86,7 +86,7 @@
 }
 
 .c_profile_addinvoice_img{
-  width: 80px;
+  width: 150px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -94,7 +94,7 @@
     font-size: 0.9rem;
   }
   .c_profile_addinvoice_img{
-    width: 60px;
+    width: 80px;
   }
   .addinvoice_lable {
     margin-top: 20px;
@@ -103,8 +103,8 @@
 
 /* invoice details */
 .c_profile_addinvoicedetails_img {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 80px;
 }
 
 .c_profile_invoicedetaikls_name{
@@ -203,10 +203,14 @@
 
 /* table head style in invoice */
 .sss{
-  width: 250px;
+  width: 60%;
+ 
 }
 .sss1{
-  width: 180px;
+  width: 200px;
+}
+.ss2 {
+  width: 70px;
 }
 
 

@@ -4,7 +4,7 @@ import Sidebar from '../components/sidebar'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Footer from '../components/footer'
 import "../../App.css"
 
@@ -51,7 +51,7 @@ const ReuseAddQuotation = (params) => {
         dateofpurchase : dateTimeString,
         paymentstatus : "",
         vendorname : "",
-        vendorGSTno : null,
+        vendorGSTno : "",
         vendoremail : "",
         vendornumber : "",
         vendoraddress : "",
@@ -402,7 +402,9 @@ const changes = (e)=>{
                                             {/*end col*/}
                                             <div className="col-lg-6 ms-auto col-12">
 
-                                                <div className="mb-2">
+                                            <div className='row' >
+                                                <div className="col-lg-6 mb-2">
+
                                                     <lable>Client Name</lable>
                                                     <select className="form-control bg-light border-0" id="vendorname"  name="vendorname" onChange={changes} >
                                                         <option>-- Select -- </option>
@@ -415,14 +417,21 @@ const changes = (e)=>{
 
                                                 </div>
 
-                                                {/* <div className="mb-2">
+                                                <div className='col-lg'>
+                                                    <br/>
+                                                    <Link to="/registeruser" className='btn btn-primary'>Add New Client</Link>
+                                                </div>
+
+                                            </div>
+
+                                                <div className="mb-2">
                                                     <input className="form-control bg-light border-0" id="vendorGSTno"  name="vendorGSTno" placeholder="GST no" {...formik.getFieldProps("vendorGSTno")} readOnly/>
                                                     <div className="invalid-feedback">
                                                         Please enter GST no
                                                     </div>
                                                     {(formik.touched.vendorGSTno && formik.errors.vendorGSTno) ? <small style={{color:"red"}}>{formik.errors.vendorGSTno}</small> : null}
 
-                                                </div> */}
+                                                </div>
 
 
                                                 {/* <div>
@@ -552,13 +561,13 @@ const changes = (e)=>{
                                                         <th>S.no</th>
                                                         {/* <th scope="col" >Category</th> */}
                                                         <th scope="col" className='sss'>Service Name</th>
+                                                        <th scope="col" className='sss1'>HSN Code</th>
                                                         <th scope="col" className='sss'>Service Description</th>
                                                         <th scope="col" style={{width:"150px"}}>Price</th>
                                                         {/* <th scope="col" >Quantity</th>
                                                         <th scope="col" >Amount</th> */}
                                                         <th scope="col" className='sss1' >GST Tax (%)</th>
                                                         <th scope="col" className='sss1' >Taxable Amount</th>
-                                                        <th scope="col" className='sss1'>HSN Code</th>
                                                         <th scope="col" className="text-end"></th>
                                                     </tr>
                                                 </thead>
@@ -576,7 +585,14 @@ const changes = (e)=>{
                                                                     Please enter a product name
                                                                 </div>
                                                             </div>
-                                                        </td>  
+                                                        </td> 
+
+                                                          <td>
+                                                            <div className="text-end"> 
+                                                            <input type='text' className="form-control bg-light border-0 product-line-price" id="hsn-code" placeholder="code" name="hsncode" value={row.hsncode} onChange={(e) => handleInputChange(e, index)}/>
+                                                               
+                                                            </div>
+                                                        </td> 
                                                                                                                                                                
 
                                                         <td >
@@ -588,7 +604,7 @@ const changes = (e)=>{
                                                         </td>
                                                         
                                                         <td >
-                                                        <div className="text-end" > 
+                                                        <div className="text-end ss2" > 
                                                         <input type="text" className="form-control bg-light border-0 product-line-price" id="productRate-1" placeholder='₹0.00' name={`rows[${index}].productprice`} value={row.productprice}  onChange={(e) => handlePriceChange(e, index)} />
                                                             <div className="invalid-feedback"> 
                                                                 Please enter a rate
@@ -611,14 +627,6 @@ const changes = (e)=>{
                                                             </div>
                                                             
                                                         </td>
-
-                                                        <td>
-                                                            <div className="text-end"> 
-                                                            <input type='text' className="form-control bg-light border-0 product-line-price" id="hsn-code" placeholder="code" name="hsncode" value={row.hsncode} onChange={(e) => handleInputChange(e, index)}/>
-                                                               
-                                                            </div>
-                                                        </td>
-                                                       
                                                      
 
 

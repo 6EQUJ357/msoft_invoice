@@ -258,7 +258,7 @@ const Signup = () => {
                                             </div>
                 
                                             <div className="col-lg-6">
-                                                <div className="d-flex h-100 bg-auth align-items-end" style={{backgroundImage :(imageURL && !formik.errors.userimg) ? `url(${imageURL})`:`url('assets/images/crackersimage.jpg')`}}>
+                                                <div className="d-flex h-100 bg-auth align-items-end" style={{backgroundImage :(imageURL && !formik.errors.userimg) ? `url(${imageURL})`:`url('assets/images/bg-auth.jpg')`}}>
                                                     <div className="p-lg-5 p-4">
                                                         <div className="bg-overlay bg-primary"></div>
                                                         <div className="p-0 p-sm-4 px-xl-0 py-5">

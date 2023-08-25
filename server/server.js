@@ -131,6 +131,45 @@ app.post("/muser",userUpload.single("userimg"), async(req,res)=>{
     }
 })
 
+
+
+//reset password
+
+app.put("/resetpassword/:id", async(req, res)=>{
+    try{
+        const {email, password} = req.body;
+
+        let exist = mcreate.findOne({email : email});
+        //console.log("wdefe", exist)
+        if(!exist){
+            return res.json({status:400, response : false, message:"user not found..."})
+        } 
+       
+         // Generate a salt
+         const salt = await bcrypt.genSalt(10);
+
+         // Generate bcrypt password hash
+         const hashedPassword = await bcrypt.hash(password, salt);
+
+         await mcreate.findByIdAndUpdate(req.params.id, { 
+            password : hashedPassword 
+        }, {new : true})
+        .then(updatedUser => {
+            if (!updatedUser) { 
+              return res.json({status : 400, message: 'Error While Update  Client' });
+             }
+             return res.send({status: 200, message: "Password Reset successsfull..."}); 
+           });
+
+    }catch(err){
+        console.log(err)
+        return res.status(500).send("internal server error...")
+    }
+})
+
+
+
+
 //get all users include admin
 app.get("/getallusers", async(req,res)=>{
     try{
@@ -172,17 +211,16 @@ app.delete("/deleteuserdetails/:id", async(req,res)=>{
              images = req.file.filename;
             }
 
-            // Generate a salt
-        const salt = await bcrypt.genSalt(10);
+        //     // Generate a salt
+        // const salt = await bcrypt.genSalt(10);
 
-        // Generate bcrypt password hash
-        const hashedPassword = await bcrypt.hash(edituserpassword, salt);
+        // // Generate bcrypt password hash
+        // const hashedPassword = await bcrypt.hash(edituserpassword, salt);
     
             await mcreate.findByIdAndUpdate(req.params.id, {
                 userimg : images,
                 username : editusername,
-                email : edituseremail, 
-                password : hashedPassword 
+                email : edituseremail 
             }, {new : true})
             .then(updatedUser => {
                 if (!updatedUser) { 
@@ -213,17 +251,17 @@ app.put("/editadmindetails/:id",userUpload.single("userimg"), async(req,res)=>{
         images = req.file.filename;
          }
 
-        // Generate a salt
-    const salt = await bcrypt.genSalt(10);
+    //     // Generate a salt
+    // const salt = await bcrypt.genSalt(10);
 
-    // Generate bcrypt password hash
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // // Generate bcrypt password hash
+    // const hashedPassword = await bcrypt.hash(password, salt);
 
         await mcreate.findByIdAndUpdate(req.params.id, {
             userimg : images,
             username : username,
-            email : email, 
-            password : hashedPassword
+            email : email 
+           
         }, {new : true})
         .then(updatedUser => {
             if (!updatedUser) { 
@@ -423,7 +461,7 @@ app.delete("/deletecompanyprofiledata/:id",async(req,res)=>{
 
 //all protected routes
 
-app.get(["/dashboard", "/edituser", "/companyprofile", "/companyprofiledata", "/editcompanyprofiledata", "/invoice", "/addinvoice", "/inviocedetails", "/quotation", "/addquotation", "/quotationdetails", "/salespayment", "/salespaymentdetails", "/taxes", "/users", "/salepaymentsummary", "/salereport", "/clientwisesalereport", "/saleperiod", "/expansesreport", "/transcationlist", "/newtranscation", "/viewcompanyprofiledata", "/registeruser", "/viewregisteruser", "/editregisteruser", "/viewuser", "/categories"], middleware1, async(req,res)=>{
+app.get(["/dashboard", "/edituser", "/companyprofile", "/companyprofiledata", "/editcompanyprofiledata", "/invoice", "/addinvoice", "/inviocedetails", "/quotation", "/addquotation", "/quotationdetails", "/salespayment", "/salespaymentdetails", "/taxes", "/users", "/salepaymentsummary", "/salereport", "/clientwisesalereport", "/saleperiod", "/expansesreport", "/transcationlist", "/newtranscation", "/viewcompanyprofiledata", "/registeruser", "/viewregisteruser", "/editregisteruser", "/viewuser", "/categories", "/resetpassword"], middleware1, async(req,res)=>{
     try{
         let exist = await mcreate.findById(req.user.id)
         if(!exist){ 
@@ -457,7 +495,7 @@ app.post("/category", async(req, res)=>{
             let saveCategory = new CategoryModel({producttype});
 
             await saveCategory.save();
-            return res.json({status : 200, message:'Category Added'});
+            return res.json({status : 200, message:'Expanses Type Added...'});
         }
         else{
             return res.json({status : 400, message :"Already Exist"});
@@ -508,7 +546,7 @@ app.put("/editcategory/:id", async(req, res)=>{
                 if (!updatedproducttype) { 
                   return res.status(404).json({ message: 'product type not found' });
                  }
-                 return res.send({status: 200, message: "Product Type Updated successsfull..."});
+                 return res.send({status: 200, message: "Expanses Type Updated successsfull..."});
                });
 
     }catch(err){

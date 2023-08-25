@@ -154,7 +154,7 @@ const ReuseInvoicedetails = (params) => {
 
                                                 <div className="mt-sm-0 mt-3">
                                                     <div className="mb-4">
-                                                        <img src={`${API_BASE_URL}/companyprofileimg/${params.value3?.[0].company_logo}`}  className="card-logo card-logo-dark c_profile_img c_profile_addinvoicedetails_img" alt="logo dark"/>
+                                                        <img src={`${API_BASE_URL}/companyprofileimg/${params.value3[0]?.company_logo}`}  className="card-logo card-logo-dark c_profile_img c_profile_addinvoicedetails_img" alt="logo dark"/>
                                                         {/* <span style={{fontWeight : "bolder", fontSize:"2rem", color:"black", textTransform : "capitalize"}} >{params.value3?.[0].company_name}</span> */}
 
                                                         {/* <img src={params.value3?.[0].company_logo}  className="card-logo card-logo-light" alt="logo light" height="80" /> */}
@@ -167,9 +167,9 @@ const ReuseInvoicedetails = (params) => {
 
                                             <div className="col-lg-4 col-4">
                                                 <div className="mt-sm-0 mt-3">
-                                                    <p> <span className='c_profile_invoicedetaikls_name '>{params.value3?.[0].company_name}</span></p>
-                                                    {/* <p className="text-muted mb-1" id="zip-code"><span>GST No : </span> {params.value3?.[0].GST_No}</p> */}
-                                                    <p className="c_profile_invoicedetaikls_name" id="address-details">{params.value3?.[0].address}</p>
+                                                    <p> <span className='c_profile_invoicedetaikls_name '>{params.value3[0]?.company_name}</span></p>
+                                                    {/* <p className="text-muted mb-1" id="zip-code"><span>GST No : </span> {params.value3[0]?.GST_No}</p> */}
+                                                    <p className="c_profile_invoicedetaikls_name" id="address-details">{params.value3[0]?.address}</p>
 
 
                                                 </div>
@@ -180,9 +180,10 @@ const ReuseInvoicedetails = (params) => {
                                                 {/* <h6 className="text-muted text-uppercase fw-semibold">Address</h6> */}
                                                     {/* <p className="text-muted mb-1" id="address-details">{params.value3?.[0].address}</p> */}
                                                     
-                                                    <h6><span className="text-muted fw-normal">Email : </span><span id="email">{params.value3?.[0].email}</span></h6>
+                                                    <h6><span className="text-muted fw-normal">GST No : </span><span id="email">{params.value3[0]?.GST_No}</span></h6>
+                                                    <h6><span className="text-muted fw-normal">Email : </span><span id="email">{params.value3[0]?.email}</span></h6>
                                                     {/* <h6><span className="text-muted fw-normal">Website:</span> <a href="https://themesbrand.com/" className="link-primary" rel='noreferrer' target="_blank" id="website">www.themesbrand.com</a></h6> */}
-                                                    <h6 className="mb-0"><span className="text-muted fw-normal">Contact No : </span><span id="contact-no">{params.value3?.[0].mobile_No}</span></h6>
+                                                    <h6 className="mb-0"><span className="text-muted fw-normal">Contact No : </span><span id="contact-no">{params.value3[0]?.mobile_No}</span></h6>
                                                 </div>
                                             </div>
                                                     
@@ -197,7 +198,7 @@ const ReuseInvoicedetails = (params) => {
                                             <div className="row g-4">
                                                 <div className="col-lg-4 col-4">
                                                     <p className=" mb-1 text-uppercase fw-bold fs-14">Client Name : {invoiceData.vendorname}</p>
-                                                    {/* <h5 className="fs-16 mb-0"><span id="invoice-no">GST No : {invoiceData.vendorGSTno}</span></h5> */}
+                                                    <h5 className="fs-16 mb-0"><span id="invoice-no">GST No : {invoiceData.vendorGSTno}</span></h5>
                                                 </div>
                                                 {/*end col*/}
                                                 <div className="col-lg-4 col-4">
@@ -275,10 +276,10 @@ const ReuseInvoicedetails = (params) => {
                                                 <span className="badge badge-soft-success fs-12">Due Date: {invoiceData.dateofpurchase.substr(0,10)}</span>
                                         </div>
 
-                                        <div className="col-lg-4 col-4">
+                                        {/* <div className="col-lg-4 col-4">
                                             <p className=" mb-1 text-uppercase fw-medium fs-14">Category</p>
                                             <span className="badge badge-soft-success fs-11" id="payment-status">{invoiceData.producttype}</span>
-                                        </div>
+                                        </div> */}
 
                                     </div>
 
@@ -450,7 +451,7 @@ const ReuseInvoicedetails = (params) => {
                                 </div>
 
                                 {/* <button className="btn btn-primary"><i className="ri-download-2-line align-bottom me-1"></i> Download</button> */}
-                                <Link to="/invoice" className="btn btn-danger addMembers-modal" ><i classname="las la-arrow-left"></i> Back To Invoice</Link>
+                                <Link to="/invoice" className="btn btn-danger addMembers-modal" ><i class="las la-arrow-left"></i> Back To Invoice</Link>
 
                             </div> 
                         </div>

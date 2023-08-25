@@ -112,9 +112,9 @@ const ReuseDashboard = (params) => {
                                 <Link to="/addinvoice" className="btn btn-primary dlink" ><i className="las la-receipt"></i> Create Invoice</Link>
                                 </div>
 
-                                <div className='col-12 col-lg-6 dbutton'>
+                                {/* <div className='col-12 col-lg-6 dbutton'>
                                 <Link to="/categories" className="btn btn-primary dlink" ><i className="las la-stream"></i> Categories</Link> 
-                                </div>
+                                </div> */}
 
 
                                 <div className='col-12 col-lg-6 dbutton'>
@@ -129,11 +129,15 @@ const ReuseDashboard = (params) => {
                                                 <li><Link className="dropdown-item" to="/clientwisesalereport"><i className="las la-database"></i>&emsp;Client Wise Sale Report</Link></li>
                                                 <li><Link className="dropdown-item" to="/saleperiod"><i className="las la-clipboard-list"></i>&emsp;Sale Period</Link></li>
                                                
-                                                <li><Link className="dropdown-item" to="/expansesreport"><i className="las la-money-bill-wave"></i>&emsp;Expenses Report</Link></li>
                                             </ul>
                                     </div>
                                 </div>
 
+
+                                <div className='col-12 col-lg-6 dbutton'>
+                                <Link to="/expansesreport" className="btn btn-primary dlink" ><i className="las la-money-bill-wave"></i>Expenses</Link> 
+                                </div>
+                                
 
                                 <div className='col-12 col-lg-6 dbutton'>
                                 <Link to="/quotation" className="btn btn-primary dlink" ><i className="las la-file-signature"></i> Quotation</Link> 

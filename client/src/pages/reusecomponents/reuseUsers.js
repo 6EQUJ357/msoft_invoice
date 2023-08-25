@@ -158,6 +158,12 @@ const ReuseUsers = (params) => {
         navigate("/viewuser", {state : data})
     }
 
+    //reset password
+
+    const resetpassword = (data)=>{
+        navigate("/resetpassword", {state : data})
+    }
+
 
 
   return (
@@ -289,11 +295,19 @@ const ReuseUsers = (params) => {
                                                                     <i className="las la-eye fs-17 align-middle"></i>
                                                                 </button>
                                                             </li>
+
                                                             <li className="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Edit">
                                                                 <button type='button' onClick={()=>EditUser(res)} className="btn btn-soft-info btn-sm d-inline-block">
                                                                     <i className="las la-pen fs-17 align-middle"></i>
                                                                 </button>
                                                             </li>
+
+                                                            <li className="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Reset Password">
+                                                                <button type='button' onClick={()=>resetpassword(res)} className="btn btn-soft-info btn-sm d-inline-block">
+                                                                <i className="bx bx-wrench fs-15 align-middle me-1"></i>
+                                                                </button>
+                                                            </li>
+
                                                             <li className="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Remove">
                                                                 <button type='button' onClick={()=>deleteuserhandle(res)} className="btn btn-soft-danger btn-sm d-inline-block">
                                                                     <i className="las la-file-download fs-17 align-middle"></i>

@@ -17,7 +17,7 @@ const Viewregisteruser = () => {
   useEffect(()=>{ 
     axios.get(`${API_BASE_URL}/viewregisteruser`, {
         headers :{
-            "x-token" : localStorage.getItem("token")
+            "x-token" : localStorage.getItem("token")  
         }
     }).catch(err => console.log(err))  
 },[]) 
@@ -41,8 +41,8 @@ if(!localStorage.getItem("token")){
                 </div>
 
                 <div className="details "> {/*col-md-6 */} 
-                {/* <h3 className="price"> GST number : <span>{viewRegisterUser.registerusergstno}</span></h3> 
-                <br /> */}
+                <h3 className="price"> GST number : <span>{viewRegisterUser.registerusergstno}</span></h3> 
+                <br />
                 <h4 className="price">Email : <span>{viewRegisterUser.registeruseremail}</span></h4> 
                 <br />
                 <h4 className="price">Contact Number : <span>{viewRegisterUser.registerusernumber}</span></h4> 

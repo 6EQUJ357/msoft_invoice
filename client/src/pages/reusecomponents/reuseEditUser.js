@@ -42,8 +42,7 @@ const [imageURL, setImageURL] = useState('');
             userimg : null,
             imageURL: '',
             editusername : userData.username,
-            edituseremail : userData.email, 
-            edituserpassword : "",
+            edituseremail : userData.email
         },
         validationSchema:Yup.object({
              // userimg: Yup.mixed().required('Image is required')
@@ -54,8 +53,7 @@ const [imageURL, setImageURL] = useState('');
             //   value && value.size <= 1024 * 1024
             // ),
             editusername : Yup.string().required("Name Required"),
-            edituseremail : Yup.string().required("Type Required"),
-            edituserpassword : Yup.string().min(6, "Password Must Be 6 Characters At Least").required("Password Required")
+            edituseremail : Yup.string().required("Type Required")
 
         }),
         onSubmit :(values, {resetForm})=>{
@@ -64,7 +62,6 @@ const [imageURL, setImageURL] = useState('');
             formData.append("userimg",values.userimg)
             formData.append("editusername",values.editusername)
             formData.append("edituseremail",values.edituseremail)
-            formData.append("edituserpassword",values.edituserpassword)
 
            
             axios.put(`${API_BASE_URL}/edituserdetails/${userData._id}`, formData).then(res=>alert(res.data.message)).catch(err=>console.log(err));
@@ -198,7 +195,7 @@ const [imageURL, setImageURL] = useState('');
                                                 </div>
                                             </div>
 
-                                            <div className="col-lg-6">
+                                            {/* <div className="col-lg-6">
 
                                                 <label className="form-label" for="price">New Password</label>
 
@@ -211,7 +208,7 @@ const [imageURL, setImageURL] = useState('');
                                                 </div>
                                                 {formik.errors.edituserpassword ? <small style={{color:"red"}}>{formik.errors.edituserpassword}</small> : null}
 
-                                            </div>   
+                                            </div>    */}
 
 
                                             <div className="dropzone mb-3"> 

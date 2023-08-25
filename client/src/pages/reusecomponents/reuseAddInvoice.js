@@ -46,7 +46,7 @@ const ReuseAddInvoice = (params) => {
         dateofpurchase : dateTimeString,
         paymentstatus : "",
         vendorname : "",
-        vendorGSTno : null,
+        vendorGSTno : "",
         vendoremail : "",
         vendornumber : "",
         vendoraddress : "",
@@ -274,7 +274,7 @@ const changes = (e)=>{
 
 const handlePaymentMethodOnCash = (e)=>{
     formik.setFieldValue("paymentmethod", e.target.value);
-
+ 
     if(e.target.value === "Cash") {
         formik.setFieldValue("cardnumber","XXXX XXXX XXXX XXXX");
         formik.setFieldValue("holdername","nill")
@@ -442,9 +442,17 @@ const handlePaymentMethodOnCash = (e)=>{
                                                 </div>
  
                                                
+                                                <div className="mb-2">
+                                                <input type="text" className="form-control bg-light border-0" id="companyGSTNO" placeholder="GST NO." name="vendorGSTno"  {...formik.getFieldProps("vendorGSTno")} readOnly />
+                                                    <div className="invalid-feedback">
+                                                        Please enter a GST NO
+                                                    </div>
+                                                    {(formik.touched.vendorGSTno && formik.errors.vendorGSTno) ? <small style={{color:"red"}}>{formik.errors.vendorGSTno}</small> : null}
+
+                                                </div>
                                                
                                                 <div className="mb-2">
-                                                <textarea className="form-control bg-light border-0" id="companyAddress" rows="3" placeholder="Company Address" name="vendoraddress" {...formik.getFieldProps("vendoraddress")} readOnly></textarea>
+                                                <textarea className="form-control bg-light border-0" id="companyAddress" rows="3" placeholder="Client Address" name="vendoraddress" {...formik.getFieldProps("vendoraddress")} readOnly></textarea>
                                                     <div className="invalid-feedback">
                                                         Please enter a address
                                                     </div>
@@ -485,16 +493,17 @@ const handlePaymentMethodOnCash = (e)=>{
                                                         <th>S.no</th>
                                                         {/* <th scope="col" >Category</th> */}
                                                         <th scope="col" className='sss'>Service Name</th>
+                                                        <th scope="col" className='sss1'>HSN Code</th>
                                                         <th scope="col" className='sss'>Service Description</th>
-                                                        <th scope="col" style={{width:"150px"}}>Price</th>
+                                                        <th scope="col" className='sss1'>Price</th>
                                                         {/* <th scope="col" >Quantity</th>
                                                         <th scope="col" >Amount</th> */}
                                                         <th scope="col" className='sss1' >GST Tax (%)</th>
                                                         <th scope="col" className='sss1' >Taxable Amount</th>
-                                                        <th scope="col" className='sss1'>HSN Code</th>
+                                                        
                                                         <th scope="col" className="text-end"></th>
                                                     </tr>
-                                                </thead>
+                                                </thead> 
 
                                                 <tbody id="newlink">
 
@@ -510,6 +519,14 @@ const handlePaymentMethodOnCash = (e)=>{
                                                                 </div>
                                                             </div>
                                                         </td>  
+
+                                                        <td>
+                                                            <div className="text-end"> 
+                                                            <input type='text' className="form-control bg-light border-0 product-line-price" id="hsn-code" placeholder="code" name="hsncode" value={row.hsncode} onChange={(e) => handleInputChange(e, index)}/>
+                                                               
+                                                            </div>
+                                                        </td>
+                                                        
                                                                                                                                                                
 
                                                         <td >
@@ -521,7 +538,7 @@ const handlePaymentMethodOnCash = (e)=>{
                                                         </td>
                                                         
                                                         <td >
-                                                        <div className="text-end" > 
+                                                        <div className="text-end ss2"> 
                                                         <input type="text" className="form-control bg-light border-0 product-line-price" id="productRate-1" placeholder='₹0.00' name={`rows[${index}].productprice`} value={row.productprice}  onChange={(e) => handlePriceChange(e, index)} />
                                                             <div className="invalid-feedback"> 
                                                                 Please enter a rate
@@ -545,13 +562,7 @@ const handlePaymentMethodOnCash = (e)=>{
                                                             
                                                         </td>
 
-                                                        <td>
-                                                            <div className="text-end"> 
-                                                            <input type='text' className="form-control bg-light border-0 product-line-price" id="hsn-code" placeholder="code" name="hsncode" value={row.hsncode} onChange={(e) => handleInputChange(e, index)}/>
-                                                               
-                                                            </div>
-                                                        </td>
-                                                        
+                                                       
                                                         
                                                         <td className="product-removal">
                                                         <button type='button' onClick={(e)=>handleDeleteRow(index)} className="btn btn-success">Delete</button>

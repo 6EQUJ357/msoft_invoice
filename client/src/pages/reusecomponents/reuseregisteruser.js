@@ -29,7 +29,7 @@ const ReuseRegisterUser = (params) => {
         initialValues : {
            userimg : null,
            imageURL: '',
-           registerusergstno : null,
+           registerusergstno : "",
            registerusername : "",
            registeruseremail : "",
            registerusernumber : "",
@@ -44,7 +44,7 @@ const ReuseRegisterUser = (params) => {
             //   value && value.size <= 1024 * 1024
             // ),
         
-            // registerusergstno : Yup.string(),
+            registerusergstno : Yup.string(),
             registerusername : Yup.string(),
             registeruseremail : Yup.string().required("Email Required"),
             registerusernumber :  Yup.string(),
@@ -271,7 +271,7 @@ const ReuseRegisterUser = (params) => {
                                         <table className="table table-hover table-nowrap align-middle mb-0">
                                             <thead>
                                                 <tr className="text-muted text-uppercase">
-                                                    {/* <th scope="col" style={{width:"19%"}}>GST Number</th> */}
+                                                    <th scope="col" style={{width:"19%"}}>GST Number</th>
                                                     <th scope="col" style={{width:"19%"}}>Client Name</th>
                                                     <th scope="col" style={{width:"19%"}}>Email</th>
                                                     <th scope="col" style={{width:"19%"}}>Mobile</th>
@@ -283,7 +283,7 @@ const ReuseRegisterUser = (params) => {
                                             <tbody>
                                                 {currentData.length > 0 ? currentData.filter(list=>list.registerusername.toLowerCase().startsWith(searchproduct.toLowerCase())).map(res=>
                                                 <tr key={res._id}>
-                                                    {/* <td>{res.registerusergstno}</td> */}
+                                                    <td>{res.registerusergstno}</td>
                                                     <td>{res.registerusername}</td>
                                                     {/* <td> <img src="assets/images/users/avatar-1.jpg" alt="" className="avatar-xs rounded-circle me-2" /> 
                                                         <a href='#a' className="text-body align-middle fw-medium">{res.registerusername}</a>
@@ -643,11 +643,11 @@ const ReuseRegisterUser = (params) => {
                                 </div> */}
                                 {/* {(formik.touched.userimg && formik.errors.userimg) ? <small style={{color:"red"}}>{formik.errors.userimg}</small> : null} */}
 
-                                {/* <div className="mb-3 mt-4">
+                                <div className="mb-3 mt-4">
                                     <label htmlFor="teammembersgst" className="form-label">GST Number</label>
                                     <input type="text" className="form-control" id="teammembersgst" placeholder="#GST Number" name='registerusergstno' value={formik.values.registerusergstno} onChange={formik.handleChange} />
                                     <div className="invalid-feedback">Please Enter a member name.</div>
-                                </div> */}
+                                </div>
                                 {/* {(formik.touched.registerusergstno && formik.errors.registerusergstno) ? <small style={{color:"red"}}>{formik.errors.registerusergstno}</small> : null} */}
 
                                 <div className="mb-3 mt-4">

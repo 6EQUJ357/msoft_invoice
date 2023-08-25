@@ -170,12 +170,12 @@ const ReuseExpansesReport = (params) => {
                     <div className="row">
                         <div className="col-12">
                             <div className="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 className="mb-sm-0">Expenses Report</h4>
+                                <h4 className="mb-sm-0">Expenses</h4>
 
                                 <div className="page-title-right">
                                     <ol className="breadcrumb m-0">
-                                        <li className="breadcrumb-item"><a href="#a">Report</a></li>
-                                        <li className="breadcrumb-item active">Expenses Report</li> 
+                                        <li className="breadcrumb-item">Expanses<a href="#a"></a></li>
+                                        <li className="breadcrumb-item active">Expenses Details</li> 
                                     </ol>
                                 </div>
 
@@ -187,6 +187,8 @@ const ReuseExpansesReport = (params) => {
                    <div className="row pb-4 gy-3">
                    <div className="col-sm-4 w-50" >
                             <button className="btn btn-primary addPayment-modal" data-bs-toggle="modal" data-bs-target="#addpaymentModal"><i className="las la-plus me-1"></i> Add Expanses</button>
+                            &emsp;
+                            <Link to="/categories" className="btn btn-primary addPayment-modal"><i class="las la-arrow-right"></i> Go To Expanses Type</Link>
                         </div>
 
                         <div className="col-sm-auto ms-auto">
@@ -231,8 +233,20 @@ const ReuseExpansesReport = (params) => {
                                                 )
                                             :
                                             <tr>
-                                                <h2>No Expanses Report Data...</h2>
+                                                <h2>No Expanses Data...</h2>
                                             </tr>
+                                                }
+
+                                            
+                                                {/* total count */}
+                                                {currentData.length > 0 && 
+                                                 <tr style={{fontWeight:"bolder", fontSize:"1rem"}}>
+                                                    <td>Total</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>{currentData.map(list=>list.amount).reduce((a,b)=> (Number(a)+ Number(b)).toFixed(3))}</td>                                                    
+                                                    <td></td>
+                                                 </tr>
                                                 }
         
                                                 {/* <tr>

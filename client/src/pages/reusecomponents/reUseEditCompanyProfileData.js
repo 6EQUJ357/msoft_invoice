@@ -24,27 +24,27 @@ const ReuseEditsCompanyProfileData = (params) => {
     const formik = useFormik({
         initialValues : {
             company_name : viewcompanyProfile.company_name,
-            GST_No : null,
+            GST_No : viewcompanyProfile.GST_No,
             mobile_No : viewcompanyProfile.mobile_No,
             email : viewcompanyProfile.email, 
             address : viewcompanyProfile.address,
             company_logo : "", 
             imageURL: "",
         },
-        validationSchema:Yup.object({
-            company_name : Yup.string().required("Company Name Required"),
-            // GST_No : Yup.string().required("Enter GST no."),
-            mobile_No : Yup.string().required('Phone number is required').matches(/^\d+$/, 'Phone number must only contain numbers').min(10, 'Phone number must be exactly 10 digits').max(10, 'Phone number must be exactly 10 digits'),
-            email : Yup.string().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 'Invalid email address').required("Email Required"),
-            address : Yup.string().required("Enter Address"),
-            // company_logo : Yup.mixed().required('Image is required')
-            // .test('fileType', 'Only JPEG and PNG images are allowed', (value) =>
-            //   value && ['image/jpeg', 'image/png'].includes(value.type)
-            // )
-            // .test('fileSize', 'Image size should be below 1MB', (value) =>
-            //   value && value.size <= 1024 * 1024
-            // )
-        }),
+        // validationSchema:Yup.object({
+        //     company_name : Yup.string().required("Company Name Required"),
+        //     GST_No : Yup.string().required("Enter GST no."),
+        //     mobile_No : Yup.string().required('Phone number is required').matches(/^\d+$/, 'Phone number must only contain numbers').min(10, 'Phone number must be exactly 10 digits').max(10, 'Phone number must be exactly 10 digits'),
+        //     email : Yup.string().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 'Invalid email address').required("Email Required"),
+        //     address : Yup.string().required("Enter Address"),
+        //     // company_logo : Yup.mixed().required('Image is required')
+        //     // .test('fileType', 'Only JPEG and PNG images are allowed', (value) =>
+        //     //   value && ['image/jpeg', 'image/png'].includes(value.type)
+        //     // )
+        //     // .test('fileSize', 'Image size should be below 1MB', (value) =>
+        //     //   value && value.size <= 1024 * 1024
+        //     // )
+        // }),
         onSubmit :(values, {resetForm})=>{
 
             const formData = new FormData();
@@ -178,14 +178,14 @@ const ReuseEditsCompanyProfileData = (params) => {
                                             </div>
                                         </div>
 
-                                        {/* <div className="col-md-6">
+                                        <div className="col-md-6">
                                             <div className="mb-3">
                                                 <label className="form-label" for="product type">GST No.</label>
-                                                    <input id="product type" name="GST_No"  type="text" className="form-control" {...formik.getFieldProps("GST_No")}/>
+                                                    <input id="product type" name="GST_No"  type="text" className="form-control" placeholder='Enter GST No.' {...formik.getFieldProps("GST_No")}/>
                                                     {formik.errors.GST_No ? <small style={{color:"red"}}>{formik.errors.GST_No}</small> : null}
 
                                             </div>
-                                        </div> */}
+                                        </div>
                                     </div>
                                         
                                         <div className="dropzone mb-3"> 

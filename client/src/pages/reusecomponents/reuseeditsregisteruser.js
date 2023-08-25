@@ -31,20 +31,20 @@ const Reuseeditsregisteruser = (params) => {
 
     const formik = useFormik({
         initialValues : {
-            editregisterusergstno : null,
+            editregisterusergstno : registeruserData.registerusergstno,
             editregisterusername : registeruserData.registerusername,
             editregisteruseremail : registeruserData.registeruseremail,
             editregisterusernumber : registeruserData.registerusernumber,
             editregisteruseraddress : registeruserData.registeruseraddress
         },
-        validationSchema:Yup.object({
-            // editregisterusergstno : Yup.string().required("Enter GST Number"),
-            editregisterusername : Yup.string().required("Name Required"),
-            editregisteruseremail : Yup.string().required("Type Required"),
-            editregisterusernumber : Yup.string().required("Price Required"),
-            editregisteruseraddress : Yup.string().required("Specify Address")
+        // validationSchema:Yup.object({
+        //     editregisterusergstno : Yup.string().required("Enter GST Number"),
+        //     editregisterusername : Yup.string().required("Name Required"),
+        //     editregisteruseremail : Yup.string().required("Type Required"),
+        //     editregisterusernumber : Yup.string().required("Price Required"),
+        //     editregisteruseraddress : Yup.string().required("Specify Address")
 
-        }),
+        // }),
         onSubmit :(values, {resetForm})=>{
            
             axios.put(`${API_BASE_URL}/editregisteruserdetails/${registeruserData._id}`, values).then(res=>alert(res.data.message)).catch(err=>console.log(err))
@@ -141,13 +141,13 @@ const Reuseeditsregisteruser = (params) => {
                                     <form onSubmit={formik.handleSubmit}>
                                         
                                     <div className="row">
-                                    {/* <div className="col-lg-6">
+                                    <div className="col-lg-6">
                                             <div className="mb-3">
                                                 <label className="form-label" for="productid">GST Number</label>
                                                 <input id="productid" name="editregisterusergstno" placeholder="#GST Number" type="text" className="form-control" {...formik.getFieldProps("editregisterusergstno")}/>
                                                 {formik.errors.editregisterusergstno ? <small style={{color:"red"}}>{formik.errors.editregisterusergstno}</small> : null}
                                             </div>
-                                        </div> */}
+                                        </div>
 
                                         <div className="col-lg-6">
                                             <div className="mb-3">
@@ -157,6 +157,12 @@ const Reuseeditsregisteruser = (params) => {
                                             </div>
                                         </div>
 
+                                       
+                                       
+                                    </div>
+                                        
+                                        <div className="row">
+
                                         <div className="col-md-6">
                                                 <div className="mb-3">
                                                     <label className="form-label" for="product type">Email</label>
@@ -165,10 +171,6 @@ const Reuseeditsregisteruser = (params) => {
 
                                                 </div>
                                         </div>
-                                       
-                                    </div>
-                                        
-                                        <div className="row">
                                             
 
                                             <div className="col-lg-6">

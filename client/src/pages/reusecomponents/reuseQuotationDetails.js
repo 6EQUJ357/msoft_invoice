@@ -156,9 +156,9 @@ const ReuseQuotationdetails = (params) => {
 
                                             <div className="col-lg-4 col-4">
                                                 <div className="mt-sm-0 mt-3">
-                                                    <p> <span className='c_profile_invoicedetaikls_name '>{params.value3?.[0].company_name}</span></p>
-                                                    {/* <p className="text-muted mb-1" id="zip-code"><span>GST No : </span> {params.value3?.[0].GST_No}</p> */}
-                                                    <p className="c_profile_invoicedetaikls_name" id="address-details">{params.value3?.[0].address}</p>
+                                                    <p> <span className='c_profile_invoicedetaikls_name '>{params.value3[0]?.company_name}</span></p>
+                                                    {/* <p className="text-muted mb-1" id="zip-code"><span>GST No : </span> {params.value3[0]?.GST_No}</p> */}
+                                                    <p className="c_profile_invoicedetaikls_name" id="address-details">{params.value3[0]?.address}</p>
 
 
                                                 </div>
@@ -168,9 +168,10 @@ const ReuseQuotationdetails = (params) => {
                                                 <div className="mt-sm-0 mt-3">
                                                 {/* <h6 className="text-muted text-uppercase fw-semibold">Address</h6> */}
                                                     
-                                                    <h6><span className="text-muted fw-normal">Email : </span><span id="email">{params.value3?.[0].email}</span></h6>
+                                                    <h6><span className="text-muted fw-normal">GST No : </span><span id="email">{params.value3[0]?.GST_No}</span></h6>
+                                                    <h6><span className="text-muted fw-normal">Email : </span><span id="email">{params.value3[0]?.email}</span></h6>
                                                     {/* <h6><span className="text-muted fw-normal">Website:</span> <a href="https://themesbrand.com/" className="link-primary" rel='noreferrer' target="_blank" id="website">www.themesbrand.com</a></h6> */}
-                                                    <h6 className="mb-0"><span className="text-muted fw-normal">Contact No : </span><span id="contact-no">{params.value3?.[0].mobile_No}</span></h6>
+                                                    <h6 className="mb-0"><span className="text-muted fw-normal">Contact No : </span><span id="contact-no">{params.value3[0]?.mobile_No}</span></h6>
                                                 </div>
                                             </div>
                                                     
@@ -184,7 +185,7 @@ const ReuseQuotationdetails = (params) => {
                                          <div className="row g-4">
                                              <div className="col-lg-4 col-4">
                                                  <p className="mb-1 text-uppercase fw-medium fs-14">Client Name : {quotationData.vendorname} </p>
-                                                 {/* <h5 className="fs-16 mb-0"><span id="invoice-no">GST No : {quotationData.vendorGSTno}</span></h5> */}
+                                                 <h5 className="fs-16 mb-0"><span id="invoice-no">GST No : {quotationData.vendorGSTno}</span></h5>
                                              </div>
                                              {/*end col*/}
                                              <div className="col-lg-4 col-4">
@@ -250,10 +251,10 @@ const ReuseQuotationdetails = (params) => {
                                              <span className="badge badge-soft-success fs-12">Due Date: {quotationData.dateofpurchase.substr(0,10)}</span>
                                      </div>
 
-                                     <div className="col-lg-4 col-4">
+                                     {/* <div className="col-lg-4 col-4">
                                             <p className=" mb-1 text-uppercase fw-medium fs-14">Category</p>
                                             <span className="badge badge-soft-success fs-11" id="payment-status">{quotationData.producttype}</span>
-                                        </div>
+                                        </div> */}
 
                                  </div>
 

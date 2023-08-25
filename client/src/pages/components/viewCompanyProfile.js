@@ -76,8 +76,8 @@ if(!localStorage.getItem("token")){
 
                 <div className="details "> {/*col-md-6 */} 
                    
-                    {/* <h3 className="price"> GST number : <span>{viewcompanyProfile.GST_No}</span></h3> 
-                    <br /> */}
+                    <h3 className="price"> GST number : <span>{viewcompanyProfile.GST_No}</span></h3> 
+                    <br />
                     <h4 className="price">Email : <span>{viewcompanyProfile.email}</span></h4> 
                     <br />
                     <h4 className="price">Contact Number : <span>{viewcompanyProfile.mobile_No}</span></h4> 

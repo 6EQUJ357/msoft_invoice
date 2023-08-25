@@ -20,27 +20,27 @@ const Company_profile = () => {
     const formik = useFormik({
         initialValues: {
             company_name : "",
-            GST_No : null,
+            GST_No : "",
             mobile_No : "",
             email : "",
             address : "",
             company_logo : null,
             imageURL: "",
         },
-        validationSchema: Yup.object({
-            company_name : Yup.string().required("Company Name Required"),
-            // GST_No : Yup.string().required("Enter GST no."),
-            mobile_No : Yup.string().required('Phone number is required').matches(/^\d+$/, 'Phone number must only contain numbers').min(10, 'Phone number must be exactly 10 digits').max(10, 'Phone number must be exactly 10 digits'),
-            email : Yup.string().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 'Invalid email address').required("Email Required"),
-            address : Yup.string().required("Enter Address"),
-            // company_logo : Yup.mixed().required('Image is required')
-            // .test('fileType', 'Only JPEG and PNG images are allowed', (value) =>
-            //   value && ['image/jpeg', 'image/png'].includes(value.type)
-            // )
-            // .test('fileSize', 'Image size should be below 1MB', (value) =>
-            //   value && value.size <= 1024 * 1024
-            // ),
-        }), 
+        // validationSchema: Yup.object({
+        //     company_name : Yup.string().required("Company Name Required"),
+        //     GST_No : Yup.string().required("Enter GST no."),
+        //     mobile_No : Yup.string().required('Phone number is required').matches(/^\d+$/, 'Phone number must only contain numbers').min(10, 'Phone number must be exactly 10 digits').max(10, 'Phone number must be exactly 10 digits'),
+        //     email : Yup.string().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 'Invalid email address').required("Email Required"),
+        //     address : Yup.string().required("Enter Address"),
+        //     // company_logo : Yup.mixed().required('Image is required')
+        //     // .test('fileType', 'Only JPEG and PNG images are allowed', (value) =>
+        //     //   value && ['image/jpeg', 'image/png'].includes(value.type)
+        //     // )
+        //     // .test('fileSize', 'Image size should be below 1MB', (value) =>
+        //     //   value && value.size <= 1024 * 1024
+        //     // ),
+        // }), 
         onSubmit: async(values, {resetForm}) => {
 
             const formData = new FormData();
@@ -143,8 +143,8 @@ const Company_profile = () => {
                                                                 {(formik.touched.company_name && formik.errors.company_name) ? <small style={{color:"red"}}>{formik.errors.company_name}</small> : null}
                                                             </div>
 
-                                                            {/* <div className="mb-3">
-                                                                {/* selector 
+                                                            <div className="mb-3">
+                                                                {/* selector */}
                                                                 <label htmlFor="userpassword" className="form-label">GST No.</label>
                                                                 <div className="position-relative       auth-pass-inputgroup mb-3">
                                                             
@@ -153,7 +153,7 @@ const Company_profile = () => {
                                                                    
                                                                </div>
                                                                {(formik.touched.GST_No && formik.errors.GST_No) ? <small style={{color:"red"}}>{formik.errors.GST_No}</small> : null}
-                                                            </div> */}
+                                                            </div>
 
                                                             <div className="mb-3">
                                                                 <label htmlFor="mobile" className="form-label">Mobile No.</label>

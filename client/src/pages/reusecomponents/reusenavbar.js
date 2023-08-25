@@ -1,6 +1,7 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom"
 import API_BASE_URL from '../components/config'
+import { Link } from 'react-router-dom'
 
 
 const Reusenavbar = (params) => {
@@ -10,6 +11,11 @@ const Reusenavbar = (params) => {
 
     const viewUser = (data)=>{
       navigate("/viewuser", {state : data})
+  }
+
+  //reset password 
+  const changePassword = (data)=>{
+    navigate("/resetpassword", {state : data})
   }
 
  
@@ -393,7 +399,7 @@ const Reusenavbar = (params) => {
                             <div className="dropdown-menu dropdown-menu-end">
                             {/* item*/}
                                 <button onClick={()=>viewUser(params.value1)} className="dropdown-item" ><i className="bx bx-user fs-15 align-middle me-1"></i> <span key="t-profile">Profile</span></button>
-                                 {/* <Link className="dropdown-item" to="/resetpassword"><i className="bx bx-wrench fs-15 align-middle me-1"></i> <span key="t-my-wallet">Reset Password</span></Link> */}
+                                 <button onClick={()=>changePassword(params.value1)} className="dropdown-item" ><i className="bx bx-wrench fs-15 align-middle me-1"></i> <span key="t-my-wallet">Reset Password</span></button>
                                {/* <a className="dropdown-item d-block" href='#a'><span className="badge bg-success float-end">11</span><i className="bx bx-wallet fs-15 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
                                 <a className="dropdown-item" href="auth-lockscreen.html"><i className="bx bx-lock-open fs-15 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a> */}
                                 <div className="dropdown-divider"></div>

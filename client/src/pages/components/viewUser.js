@@ -48,8 +48,7 @@ const ViewUser = () => {
             userimg : null,
             imageURL: '',
             username : viewuser.username,
-            email : viewuser.email,
-            password : "",
+            email : viewuser.email        
            
         },
         validationSchema : Yup.object({
@@ -63,7 +62,6 @@ const ViewUser = () => {
 
             username : Yup.string().required("Name Required"),
             email : Yup.string().required("Email Required"),
-            password : Yup.string().min(6, "Password Must Be 6 Characters At Least").required("Password Required"),
 
         }),
         onSubmit : async(values, {resetForm})=>{
@@ -73,7 +71,6 @@ const ViewUser = () => {
             formData.append("userimg",values.userimg)
             formData.append("username",values.username)
             formData.append("email",values.email)
-            formData.append("password",values.password)
 
 
             await axios.put(`${API_BASE_URL}/editadmindetails/${viewuser._id}`, formData).then(res=>alert(res.data.message)).catch(err => console.log(err));
@@ -198,7 +195,7 @@ const ViewUser = () => {
                                 </div>
                                 {formik.errors.email ? <small style={{color:"red"}}>{formik.errors.email}</small> : null}
 
-                                <div className="mb-3">
+                                {/* <div className="mb-3">
                                     <label htmlFor="teammembersnumber" className="form-label">New Password</label>
 
                                     <div className="position-relative auth-pass-inputgroup mb-3">
@@ -208,7 +205,7 @@ const ViewUser = () => {
                                     
                                     <div className="invalid-feedback">Please Enter a member Password.</div>
                                 </div>
-                                {(formik.touched.password && formik.errors.password) ? <small style={{color:"red"}}>{formik.errors.password}</small> : null}
+                                {(formik.touched.password && formik.errors.password) ? <small style={{color:"red"}}>{formik.errors.password}</small> : null} */}
 
                                 {/* <div className="mb-3">
                                     <label htmlFor="teammembersnumbrs" className="form-label">Conform Password</label>

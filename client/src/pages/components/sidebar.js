@@ -119,11 +119,7 @@ const Sidebar = (params) => {
                                                 <li className="nav-item">
                                                     <Link to="/saleperiod" className="nav-link" data-key="t-sale-report"><i className="las la-clipboard-list"></i> Sale Period </Link>
                                                 </li>
-
-                                               
-                                                <li className="nav-item">
-                                                    <Link to="/expansesreport" className="nav-link" data-key="t-expenses-report"><i className="las la-money-bill-wave"></i> Expenses Report </Link>
-                                                </li>
+                                                                                         
                                             </ul>
                                         </div>
                                     </li>
@@ -134,8 +130,12 @@ const Sidebar = (params) => {
                                     <>
 
                                     <li className="nav-item">
-                                        <Link to="/categories" className="nav-link" data-key="t-users"><i className="las la-stream"></i> Categories</Link>
+                                        <Link to="/expansesreport" className="nav-link" data-key="t-expenses-report"><i className="las la-money-bill-wave"></i> Expenses</Link>
                                     </li>
+
+                                    {/* <li className="nav-item">
+                                        <Link to="/categories" className="nav-link" data-key="t-users"><i className="las la-stream"></i> Categories</Link>
+                                    </li> */}
 
                                     <li className="nav-item">
                                         <Link to="/users" className="nav-link" data-key="t-users"><i className="las la-user-friends"></i> Users</Link>

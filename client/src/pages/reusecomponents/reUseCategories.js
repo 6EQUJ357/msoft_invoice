@@ -4,7 +4,7 @@ import Reusenavbar from './reusenavbar'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Footer from '../components/footer'
 
 
@@ -26,7 +26,7 @@ const ReuseCategories = (params) => {
             producttype : ""      
         },
         validationSchema : Yup.object({
-            producttype : Yup.string().required("Enter Product Type")
+            producttype : Yup.string().required("Enter Expanses Type")
         }),
         onSubmit : async(values, {resetForm})=>{
             //console.log("values", values)
@@ -59,7 +59,7 @@ const ReuseCategories = (params) => {
             editproducttype : ""      
         },
         validationSchema : Yup.object({
-            editproducttype : Yup.string().required("Enter Product Type")
+            editproducttype : Yup.string().required("Enter Expanses Type")
         }),
         onSubmit : async(values, {resetForm})=>{
             //console.log("values", values)
@@ -121,7 +121,7 @@ const ReuseCategories = (params) => {
     //delete category  details
 
     const deletecategoryhandle = (res)=>{
-        let response = window.confirm(` Want to Delete This product type #${res.producttype}`);
+        let response = window.confirm(` Want to Delete This Expanses type #${res.producttype}`);
 
         if(response){
         axios.delete(`${API_BASE_URL}/deletecategory/${res._id}`).then(res=>setCategory(res.data)).catch(err => console.log(err))
@@ -201,12 +201,12 @@ const ReuseCategories = (params) => {
                     <div className="row">
                         <div className="col-12">
                             <div className="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 className="mb-sm-0">Categoty</h4>
+                                <h4 className="mb-sm-0">Expanses Type</h4>
 
                                 <div className="page-title-right">
                                     <ol className="breadcrumb m-0">
-                                        <li className="breadcrumb-item"><a href="#a">Categoty</a></li>
-                                        <li className="breadcrumb-item active">Categoty Details</li>
+                                        <li className="breadcrumb-item"><a href="#a">Expanses</a></li>
+                                        <li className="breadcrumb-item active">Expanses Details</li>
                                     </ol>
                                 </div>
 
@@ -216,14 +216,17 @@ const ReuseCategories = (params) => {
                    {/* end page title */}
 
                     <div className="row pb-4 gy-3">
-                        <div className="col-sm-4">
-                            <button className="btn btn-primary addPayment-modal" data-bs-toggle="modal" data-bs-target="#addpaymentModal"><i className="las la-plus me-1"></i> Add Category</button>
+                        <div className="col-sm-4 w-50">
+                            <button className="btn btn-primary addPayment-modal" data-bs-toggle="modal" data-bs-target="#addpaymentModal"><i className="las la-plus me-1"></i> Add Expanses Type</button>
+
+                            &emsp;
+                            <Link to="/expansesreport" className="btn btn-primary addPayment-modal"><i class="las la-arrow-right"></i> Go To Expanses</Link>
                         </div>
 
                         <div className="col-sm-auto ms-auto">
                            <div className="d-flex gap-3">
                             <div className="search-box">
-                                <input type="text" className="form-control" id="searchMemberList" placeholder="Search for Category" name='search' onChange={(e)=>setSearch(e.target.value)}/>
+                                <input type="text" className="form-control" id="searchMemberList" placeholder="Search for Expanses Type" name='search' onChange={(e)=>setSearch(e.target.value)}/>
                                 <i className="las la-search search-icon"></i>
                             </div>
                             {/* <div className="">
@@ -247,7 +250,7 @@ const ReuseCategories = (params) => {
                                         <table className="table table-hover table-nowrap align-middle mb-0">
                                             <thead>
                                                 <tr className="text-muted text-uppercase">
-                                                    <th scope="col">Category</th>
+                                                    <th scope="col">Expanses Type</th>
                                                     <th scope='col'>Date</th>
                                                     <th scope="col" style={{width: "12%"}}>Action</th> 
                                                 </tr>
@@ -286,7 +289,7 @@ const ReuseCategories = (params) => {
                                                 )
                                                 :
                                                 <tr>
-                                                    <h1>No Category Data Found...</h1>
+                                                    <h1>No Expanses Type Data Found...</h1>
                                                 </tr>
                                                 }
                                                 
@@ -343,7 +346,7 @@ const ReuseCategories = (params) => {
         <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content border-0">
                 <div className="modal-header p-4 pb-0">
-                    <h5 className="modal-title" id="createMemberLabel">Add Category</h5>
+                    <h5 className="modal-title" id="createMemberLabel">Add Expanses Type</h5>
                     <button type="button" className="btn-close" id="createMemberBtn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body p-4">
@@ -354,16 +357,16 @@ const ReuseCategories = (params) => {
                                 
 
                                 <div className="mb-3 mt-4">
-                                    <label htmlFor="producttype" className="form-label">Category</label>
-                                    <input type="text" className="form-control" id="producttype" placeholder="Enter Product Type" name='producttype' value={formik.values.producttype} onChange={formik.handleChange} />
-                                    <div className="invalid-feedback">Please Enter a Product Category.</div>
+                                    <label htmlFor="producttype" className="form-label">Expanses</label>
+                                    <input type="text" className="form-control" id="producttype" placeholder="Enter Expanses Type" name='producttype' value={formik.values.producttype} onChange={formik.handleChange} />
+                                    <div className="invalid-feedback">Please Enter a Product Expanses.</div>
                                 </div>
                                 {(formik.touched.producttype && formik.errors.producttype) ? <small style={{color:"red"}}>{formik.errors.producttype}</small> : null}
 
 
                                 <div className="hstack gap-2 justify-content-end">
                                     <button type="button" className="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" className="btn btn-success" id="addNewMember">Add Category</button>
+                                    <button type="submit" className="btn btn-success" id="addNewMember">Add Expanses</button>
                                 </div>
                             </div>
                         </div>
@@ -382,7 +385,7 @@ const ReuseCategories = (params) => {
         <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content border-0">
                 <div className="modal-header p-4 pb-0">
-                    <h5 className="modal-title" id="createMemberLabel">Edit Category</h5>
+                    <h5 className="modal-title" id="createMemberLabel">Edit Expanses Type</h5>
                     <button type="button" className="btn-close" id="createMemberBtn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body p-4">
@@ -393,21 +396,21 @@ const ReuseCategories = (params) => {
                                 
 
                                 <div className="mb-3 mt-4">
-                                    <label htmlFor="producttype" className="form-label">Category</label>
+                                    <label htmlFor="producttype" className="form-label">Expanses Type</label>
                                     <input type="text" className="form-control"  value={modalData} readOnly />
-                                    <div className="invalid-feedback">Please Enter a Product Category.</div>
+                                    <div className="invalid-feedback">Please Enter Expanses Type.</div>
                                 </div>
 
                                 <div className="mb-3 mt-4">
-                                    <input type="text" className="form-control" id="editproducttype" placeholder="Enter New Category" name='editproducttype' value={formik1.values.editproducttype} onChange={formik1.handleChange} />
-                                    <div className="invalid-feedback">Please Enter a Product Category.</div>
+                                    <input type="text" className="form-control" id="editproducttype" placeholder="Enter New Expanses Type" name='editproducttype' value={formik1.values.editproducttype} onChange={formik1.handleChange} />
+                                    <div className="invalid-feedback">Please Enter Expanses Type.</div>
                                 </div>
                                 {(formik1.touched.editproducttype && formik1.errors.editproducttype) ? <small style={{color:"red"}}>{formik1.errors.editproducttype}</small> : null} 
 
 
                                 <div className="hstack gap-2 justify-content-end">
                                     <button type="button" className="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" className="btn btn-success" id="addNewMember">Edit Category</button>
+                                    <button type="submit" className="btn btn-success" id="addNewMember">Edit Expanses Type</button>
                                 </div>
                             </div>
                         </div>
