@@ -120,7 +120,7 @@ const PasswordReset = () => {
                                             <div className="col-lg-6">
                                                 <div className="p-lg-5 p-4">
                                                     <div className="text-center">
-                                                        <h5 className="mb-0">Forgot Password?</h5>
+                                                        <h5 className="mb-0">Reset Password?</h5>
                                                         <p className="text-muted mt-2">Reset password with {company_profile_dataa && company_profile_dataa[0]?.company_name}</p>
                                                     </div>
 
@@ -157,7 +157,7 @@ const PasswordReset = () => {
                                                                 </div>
                                                                 <div className="mt-2">
                                                                 {/* <button className="btn btn-primary w-100" type="submit">Send Reset Link</button> */}
-                                                                <button className="btn btn-primary w-100" type="submit">Change Password</button>
+                                                                <button className="btn btn-primary w-100" type="submit">Reset Password</button>
 
                                                                 </div>
                                                             
@@ -189,9 +189,9 @@ const PasswordReset = () => {
                                                                 </ul>
                                                             </div> */}
                 
-                                                            <div className="mt-4 text-center">
+                                                            {/* <div className="mt-4 text-center">
                                                                 <p className="mb-0">Wait, I remember my password...  <Link to="/" className="fw-medium text-primary text-decoration-underline">  Click here  </Link> </p>
-                                                            </div>
+                                                            </div> */}
                                                         </form>
                                                     </div>
                                 

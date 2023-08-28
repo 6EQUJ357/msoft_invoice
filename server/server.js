@@ -434,10 +434,10 @@ app.put("/updatecompanyprofiledata/:id",companyprofile_upload.single("company_lo
          .then(updatedUser => {
             if (!updatedUser) { 
               return res.status(404).json({ message: 'User not found' });
-             }
+             } 
              return res.json({status: 200, message: "Profile Updated successsfull..."}); 
            })
-          
+            
     }
     catch(err){
         console.log(err)
