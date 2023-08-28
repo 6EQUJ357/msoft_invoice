@@ -373,7 +373,7 @@ app.post("/companyprofile",companyprofile_upload.single("company_logo"), async(r
         //   images =req.protocol + '://' + req.get('host') + '/companyprofileimg/' + req.file.filename;
         images = req.file.filename;
          }
-
+ 
 
 
         let exist = await company_profileModel.findOne({email:email})  
@@ -435,9 +435,9 @@ app.put("/updatecompanyprofiledata/:id",companyprofile_upload.single("company_lo
             if (!updatedUser) { 
               return res.status(404).json({ message: 'User not found' });
              } 
-             return res.json({status: 200, message: "Profile Updated successsfull..."}); 
+             return res.json({status: 200, message: "Profile Updated successsfull..."});  
            })
-            
+              
     }
     catch(err){
         console.log(err)
